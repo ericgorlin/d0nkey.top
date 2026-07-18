@@ -51,6 +51,8 @@ defmodule Components.DecksExplorer do
   data(offset, :integer, default: 0)
   data(needs_login?, :boolean, default: nil)
   data(end_of_stream?, :boolean, default: false)
+  data(loading?, :boolean, default: true)
+  data(deck_stats_fetch_id, :integer, default: nil)
 
   def update(assigns_raw, socket) do
     assigns =
@@ -83,6 +85,8 @@ defmodule Components.DecksExplorer do
     }
   end
 
+  # Fetches deck stats asynchronously so the liveview process can immediately
+  # ack the live_patch (updating the url) instead of blocking on the query
   def stream_deck_stats(socket, new_offset, reset \\ false) when new_offset >= 0 do
     %{offset: curr_offset} = socket.assigns
     {_, search_filters} = parse_params(socket.assigns)
@@ -95,23 +99,24 @@ defmodule Components.DecksExplorer do
            Map.get(socket.assigns, :user),
            Map.get(socket.assigns, :filter_context)
          ) do
-      fetched_deck_stats =
-        criteria
-        |> DeckTracker.deck_stats()
-        |> Enum.map(&Map.put_new(&1, :id, &1.deck_id))
+      # only the newest fetch may update the stream, older ones get discarded
+      fetch_id = System.unique_integer()
 
-      handle_offset_stream_scroll(
-        socket,
-        :deck_stats,
-        fetched_deck_stats,
-        new_offset,
-        curr_offset,
-        nil,
-        reset
-      )
+      socket
+      |> assign(needs_login?: false, loading?: true, deck_stats_fetch_id: fetch_id)
+      |> ensure_stream(:deck_stats)
+      |> start_async(:deck_stats_fetch, fn ->
+        fetched_deck_stats =
+          criteria
+          |> DeckTracker.deck_stats()
+          |> Enum.map(&Map.put_new(&1, :id, &1.deck_id))
+
+        {fetch_id, new_offset, reset, fetched_deck_stats}
+      end)
     else
-      handle_offset_stream_scroll(
-        socket,
+      socket
+      |> assign(:loading?, false)
+      |> handle_offset_stream_scroll(
         :deck_stats,
         [],
         curr_offset,
@@ -123,6 +128,34 @@ defmodule Components.DecksExplorer do
     end
   end
 
+  def handle_async(
+        :deck_stats_fetch,
+        {:ok, {fetch_id, new_offset, reset, fetched_deck_stats}},
+        socket
+      ) do
+    if fetch_id == socket.assigns.deck_stats_fetch_id do
+      {
+        :noreply,
+        socket
+        |> assign(:loading?, false)
+        |> handle_offset_stream_scroll(
+          :deck_stats,
+          fetched_deck_stats,
+          new_offset,
+          socket.assigns.offset,
+          nil,
+          reset
+        )
+      }
+    else
+      {:noreply, socket}
+    end
+  end
+
+  def handle_async(:deck_stats_fetch, {:exit, _reason}, socket) do
+    {:noreply, assign(socket, :loading?, false)}
+  end
+
   def render(assigns) do
     ~F"""
     <div>
@@ -130,8 +163,8 @@ defmodule Components.DecksExplorer do
 
       <.filter_container>
         <FormatDropdown id="format_dropdown" filter_context={@filter_context} aggregated_only={!can_access_unaggregated?(@user, @filter_context)}/>
-        <RankDropdown id="rank_dropdown" filter_context={@filter_context} aggregated_only={!can_access_unaggregated?(@user, @filter_context)} warning={warning?(@streams)} />
-        <PeriodDropdown id="period_dropdown" filter_context={@filter_context} aggregated_only={!can_access_unaggregated?(@user, @filter_context)} warning={warning?(@streams)} />
+        <RankDropdown id="rank_dropdown" filter_context={@filter_context} aggregated_only={!can_access_unaggregated?(@user, @filter_context)} warning={warning?(@streams, @loading?)} />
+        <PeriodDropdown id="period_dropdown" filter_context={@filter_context} aggregated_only={!can_access_unaggregated?(@user, @filter_context)} warning={warning?(@streams, @loading?)} />
         <RegionDropdown :if={can_access_unaggregated?(@user, @filter_context)} title={warning_if_public(@filter_context, "Region")} id={"deck_region"} filter_context={@filter_context} />
 
          { #<LivePatchDropdown
@@ -149,7 +182,7 @@ defmodule Components.DecksExplorer do
           options={min_games_options(@min_games_options, @min_games_floor)}
           title={"Min Games"}
           param={"min_games"}
-          warning={warning?(@streams)}
+          warning={warning?(@streams, @loading?)}
           selected_as_title={true}
           normalizer={&to_string/1} />
 
@@ -158,7 +191,7 @@ defmodule Components.DecksExplorer do
           options={[0, 20, 30, 40, 45, 50, 55, 60, 70, 80] |> Enum.map(& {&1, "Min #{&1}%"})}
           title={"Min Winrate"}
           param={"min_winrate"}
-          warning={warning?(@streams)}
+          warning={warning?(@streams, @loading?)}
           selected_as_title={true}
           normalizer={&to_string/1} />
 
@@ -199,6 +232,9 @@ defmodule Components.DecksExplorer do
         <br>
         <br>
 
+        <div :if={@loading?} class="has-text-centered">
+          <button class="button is-loading is-static is-large" aria-label="Loading decks"></button>
+        </div>
         <div
         :if={!@needs_login?}
         id="deck_stats_viewport"
@@ -219,7 +255,7 @@ defmodule Components.DecksExplorer do
             You need to login to use these filters
           </div>
         </div>
-        <div :if={warning?(@streams)} >
+        <div :if={warning?(@streams, @loading?)} >
           <br>
           <br>
           <br>
@@ -262,6 +298,10 @@ defmodule Components.DecksExplorer do
   def can_access_unaggregated?(%{id: _id, battletag: _btag}, :public), do: true
   def can_access_unaggregated?(_, _), do: false
 
+  def handle_event("next-decks-page", _middle, %{assigns: %{loading?: true}} = socket) do
+    {:noreply, socket}
+  end
+
   def handle_event("next-decks-page", _middle, socket) do
     %{offset: offset} = socket.assigns
     {_, %{"limit" => limit}} = parse_params(socket.assigns)
@@ -271,8 +311,9 @@ defmodule Components.DecksExplorer do
 
   def handle_event("deck_copied", _, socket), do: {:noreply, socket}
 
-  defp warning?(%{deck_stats: %{inserts: []}}), do: true
-  defp warning?(_), do: false
+  defp warning?(_streams, true = _loading?), do: false
+  defp warning?(%{deck_stats: %{inserts: []}}, _loading?), do: true
+  defp warning?(_, _), do: false
 
   defp parse_params(%{params: params} = assigns) do
     parse_params(params, assigns)
