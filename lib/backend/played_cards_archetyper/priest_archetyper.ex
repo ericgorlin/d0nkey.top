@@ -56,6 +56,7 @@ defmodule Backend.PlayedCardsArchetyper.PriestArchetyper do
     # 10.5
   ]
   @wild_config [
+    "Thief Priest": [{:start_of_game, ["Azalina Soulsever"]}],
     "Shadow Priest": ["Parachute Brigand"],
     "LC Quest Priest": ["Grave Horror", "Undying Allies"],
     "Shadow Priest": ["Defias Leper", "Treasure Distributor"],

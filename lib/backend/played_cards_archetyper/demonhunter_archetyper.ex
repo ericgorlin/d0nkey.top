@@ -69,7 +69,7 @@ defmodule Backend.PlayedCardsArchetyper.DemonHunterArchetyper do
     "Void DH": ["Grim Harvest", "Infestation", "Sigil of the Seas"]
   ]
   @wild_config [
-    "Token Broxigar DH": [
+    "Token DH": [
       "Broxigar's Last Stand",
       "Dispose of Evidence",
       "Felosophy",
