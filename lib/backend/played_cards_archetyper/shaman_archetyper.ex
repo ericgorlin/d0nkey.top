@@ -103,6 +103,61 @@ defmodule Backend.PlayedCardsArchetyper.ShamanArchetyper do
   end
 
   @wild_config [
+    "JtU Quest Shaman": ["Unite the Murlocs"],
+    "Zee Shaman": [
+      {:all,
+       [
+         {:start_of_game, ["Mug'Zee"]},
+         [
+           "Beaming Sidekick",
+           "Carrier Whelp",
+           "Cult Neophyte",
+           "Dreambound Raptor",
+           "Fire Fly",
+           "Gallagio Goon",
+           "Getaway Hogdriver",
+           "Glacial Shard",
+           "Hexmarshal",
+           "Hijacked Securitybot",
+           "Holy Eggbearer",
+           "Platysaur",
+           "Portal Vanguard",
+           "Prize Vendor",
+           "Rockskipper",
+           "Shadowed Informant",
+           "Slagclaw",
+           "The Black Knight",
+           "The Curator",
+           "Warden Maiev"
+         ]
+       ]}
+    ],
+    "Mug Shaman": [
+      {:all,
+       [
+         {:start_of_game, ["Mug'Zee"]},
+         [
+           "Ascendance",
+           "Blazing Invocation",
+           "Fire Breath",
+           "Frostshatter",
+           "Hex",
+           "Low Security Wing",
+           "Molten Gold",
+           "Mountain Map",
+           "Ritual of Power",
+           "Sands of Time",
+           "Static Shock",
+           "Stormfury",
+           "Thunderquake",
+           "Tiny Pal",
+           "Wanted Poster"
+         ]
+       ]}
+    ],
+    "Boar Shaman": ["Elwynn Boar"],
+    "Odd Shaman": [{:start_of_game, ["Baku the Mooneater"]}, "Baku the Mooneater"],
+    "Even Shaman": [{:start_of_game, ["Genn Greymane"]}, "Genn Greymane"],
     "Even Shaman": [
       "Anchored Totem",
       "Ancient Totem",
@@ -119,6 +174,8 @@ defmodule Backend.PlayedCardsArchetyper.ShamanArchetyper do
     "Ohn'ahra Big Shaman": ["Nebula"],
     "SoU Quest Shaman": ["Caricature Artist"],
     "XL HL Shudder Shaman": ["For All Time", "Miracle Salesman", "Razorscale", "Revolve", "Sphere of Sapience"],
+    "Shudderwock Shaman": ["Shudderwock"],
+    "Tog Shaman": ["King Togwaggle"],
     "Big Shaman": ["Rockbiter Weapon"],
     "Ohn'ahra Big Shaman": [
       "Ancestor's Call",
@@ -166,7 +223,13 @@ defmodule Backend.PlayedCardsArchetyper.ShamanArchetyper do
     "Splendiferous Whizbang": ["Clownfish"],
     "XL HL Shudder Shaman": ["Turbulus"],
     "XL HL SoU Quest Shaman": ["Corrupt the Waters"],
-    "Ohn'ahra Big Shaman": ["Fairy Tale Forest", "Triangulate"]
+    "Ohn'ahra Big Shaman": ["Fairy Tale Forest", "Triangulate"],
+    "Ohn'ahra Shaman": ["Ohn'ahra"],
+    "Evolve Shaman": ["Boggspine Knuckles", "Desert Hare", "Doppelgangster", "Evolve", "Unstable Evolution"],
+    "Asteroid Shaman": ["Bolide Behemoth", "Meteor Storm", "Ultraviolet Breaker"],
+    "Murmur Shaman": ["Murmur"],
+    "Pirate Shaman": ["Patches the Pilot"],
+    "Mecha'thun Shaman": ["Mecha'thun"]
   ]
 
   def standard_excludes, do: %{}

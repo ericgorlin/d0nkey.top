@@ -56,12 +56,22 @@ defmodule Backend.PlayedCardsArchetyper.RogueArchetyper do
     "Harold Rogue": ["Eventuality", "Rite of Twilight"]
   ]
   @wild_config [
+    "Questline Rogue": ["Find the Imposter"],
+    "SoU Quest Rogue": ["Bazaar Burglary"],
+    "Boar Rogue": ["Elwynn Boar"],
+    "Odd Rogue": [{:start_of_game, ["Baku the Mooneater"]}, "Baku the Mooneater"],
+    "Even Rogue": [{:start_of_game, ["Genn Greymane"]}, "Genn Greymane"],
+    "Mecha'thun Rogue": ["Mecha'thun"],
+    "Tog Rogue": ["King Togwaggle"],
+    "Quasar Mill Rogue": [{:all, ["Quasar", "Selfish Shellfish"]}],
     "Quasar Rogue": ["Shiv"],
     "Alex Rogue": ["Darkscale Broodmother"],
     "Quasar Rogue": ["Knickknack Shack", "Mimic Pod", "Quasar", "Shadow of Death", "Street Trickster"],
     "Miracle Rogue": ["Scribbling Stenographer"],
     "XL Mill Rogue": ["Vanndar Stormpike"],
+    "Gnoll Miracle Rogue": {[{:all, ["Wildpaw Gnoll", "Arcane Giant"]}], ["Triple Sevens"]},
     "777 Miracle Rogue": ["Arcane Giant", "Everything Must Go!", "Triple Sevens"],
+    "Swiftscale Rogue": ["Swiftscale Trickster"],
     "JtU Quest Rogue": ["The Caverns Below"],
     "Pirate Rogue": ["Swordfish"],
     "Hostage Rogue": ["Jade Telegram"],
@@ -137,7 +147,10 @@ defmodule Backend.PlayedCardsArchetyper.RogueArchetyper do
     "Quasar Rogue": ["Cultist Map"],
     "STD Harold Rogue": ["Dirty Rat"],
     "XL Velarok Rogue": ["Bitterbloom Knight", "Deja Vu", "Nightmare Fuel"],
-    "Velarok Rogue": ["Counterfeit Coin", "Preparation"]
+    "Velarok Rogue": ["Counterfeit Coin", "Preparation"],
+    "Hooktusk Rogue": ["Pirate Admiral Hooktusk"],
+    "Mine Rogue": ["Naval Mine"],
+    "Drilling Rogue": ["Antique Flinger", "Bloodrock Co. Shovel", "Drilly the Kid"]
   ]
 
   def standard_excludes, do: %{}

@@ -48,7 +48,15 @@ defmodule Backend.PlayedCardsArchetyper.HunterArchetyper do
     "Dragon Hunter": ["Tracking", "Underbelly Network"]
   ]
   @wild_config [
+    "Odd Questline Hunter": [{:all, [{:start_of_game, ["Baku the Mooneater"]}, "Defend the Dwarven District"]}],
+    "JtU Quest Hunter": ["The Marsh Queen"],
+    "SoU Quest Hunter": ["Unseal the Vault"],
     "Boar Hunter": ["Elwynn Boar"],
+    "Odd Hunter": [{:start_of_game, ["Baku the Mooneater"]}],
+    "Even Hunter": [{:start_of_game, ["Genn Greymane"]}],
+    "Tog Hunter": ["King Togwaggle"],
+    "Mecha'thun Hunter": ["Mecha'thun"],
+    "Floppy Hunter": ["Floppy Hydra"],
     "Secret Hunter": ["Eversong Portal"],
     "Amalgam Hunter": ["Adaptive Amalgam"],
     "XL Highlander Hunter": ["Mojomaster Zihi"],
@@ -81,7 +89,8 @@ defmodule Backend.PlayedCardsArchetyper.HunterArchetyper do
     "XL HL Leoroxx Hunter": ["Miracle Salesman", "Razorscale", "Troubled Mechanic", "Wild Spirits"],
     "Highlander Hunter": ["Theldurin the Lost"],
     "STD Companion Hunter": ["Migrating Elekk", "Talya Earthstrider"],
-    "Boar Hunter": ["Rangari Scout"]
+    "Boar Hunter": ["Rangari Scout"],
+    "Midrange Hunter": ["Acidmaw", "Dreadscale", "Exarch Naielle"]
   ]
 
   def standard_excludes, do: %{}

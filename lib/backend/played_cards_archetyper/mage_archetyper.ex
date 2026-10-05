@@ -53,6 +53,13 @@ defmodule Backend.PlayedCardsArchetyper.MageArchetyper do
     "Leyline Mage": ["First Flame", "Runed Orb", "Smoldering Grove", "Tricksy Improviser", "Winterspring Whelp"]
   ]
   @wild_config [
+    "SoU Quest Mage": ["Raid the Sky Temple"],
+    "Boar Mage": ["Elwynn Boar"],
+    "Odd Mage": [{:start_of_game, ["Baku the Mooneater"]}],
+    "Even Mage": [{:start_of_game, ["Genn Greymane"]}],
+    "Tog Mage": ["King Togwaggle"],
+    "Sif Mage": ["Sif"],
+    "Mecha'thun Mage": ["Mecha'thun"],
     "Other Mage": ["Dire Wolf Alpha", "Evasive Wyrm", "Faerie Dragon", "Imposing Anubisath", "Raid Leader"],
     "Elemental Mage": ["Tar Slime"],
     "XL HL Exodia Mage": ["Font of Power"],
@@ -71,7 +78,7 @@ defmodule Backend.PlayedCardsArchetyper.MageArchetyper do
     "XL HL Exodia Mage": ["Alter Time", "Buy One, Get One Freeze", "Card Grader"],
     "Imbue Mage": ["Wisprider"],
     "XL JtU Quest Mage": ["Open the Waygate"],
-    "Small Spell Mage": ["Vicious Slitherspear"],
+    "Small Spell Mage": ["Archmage Kalec", "Raylla, Sand Sculptor", "Vicious Slitherspear"],
     "XL HL Exodia Mage": ["Infinitize the Maxitude"],
     "Giants Mage": ["Desk Imp", "Target Dummy"],
     "XL HL Big Spell Mage": ["Arcane Brilliance"],

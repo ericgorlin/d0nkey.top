@@ -22,6 +22,13 @@ defmodule Backend.PlayedCardsArchetyper.DemonHunterArchetyper do
     "Slumbering Sprite",
     "Wild Pyromancer"
   ]
+  @wild_relic_cards [
+    "Artificer Xy'mox",
+    "Relic of Dimensions",
+    "Relic of Extinction",
+    "Relic of Phantasms",
+    "Relic Vault"
+  ]
   @standard_excludes %{
     :"No Minion DH" =>
       @herald_package ++
@@ -69,19 +76,34 @@ defmodule Backend.PlayedCardsArchetyper.DemonHunterArchetyper do
     "Void DH": ["Grim Harvest", "Infestation", "Sigil of the Seas"]
   ]
   @wild_config [
-    "Token Broxigar DH": [
+    "Odd DH": ["Baku the Mooneater", {:start_of_game, ["Baku the Mooneater"]}],
+    "Even DH": ["Genn Greymane", {:start_of_game, ["Genn Greymane"]}],
+    "Tog DH": ["King Togwaggle"],
+    "Mecha'thun DH": ["Mecha'thun"],
+    "Boar DH": ["Elwynn Boar"],
+    "Il'gynoth DH": ["Il'gynoth"],
+    "Naga DH": ["Blindeye Sharpshooter"],
+    "Token DH": [
       "Broxigar's Last Stand",
       "Dispose of Evidence",
       "Felosophy",
-      "Final Showdown",
       "Irebound Brute",
       "Patches the Pilot"
     ],
+    "Broxigar DH": ["Broxigar"],
+    "Fatigue DH": [{:all, ["Aranna, Thrill Seeker", "Glaivetar"]}],
+    "Questline DH": ["Final Showdown"],
     "XL Highlander DH": ["Gunslinger Kurtrus", "Snake Eyes"],
     "XL Fel DH": ["Illidan's Gift"],
     "STD Quest DH": ["Questing Assistant"],
     "LC Quest DH": ["Unleash the Colossus"],
+    "Fel Relic DH": [
+      {:all, [@wild_relic_cards, ["Felgorger", "Fossil Fanatic", "Jace Darkweaver"]]}
+    ],
     "Fel DH": ["Fel Barrage", "Scorchreaver", "Unleash Fel"],
+    "Fel DH": ["Felgorger", "Fossil Fanatic", "Jace Darkweaver"],
+    "Relic DH": @wild_relic_cards,
+    "Pirate DH": ["Adrenaline Fiend", "Hozen Roughhouser", "Sigil of Skydiving", "Space Pirate"],
     "STD Demon Hunter": ["Chaos Strike"]
   ]
 
