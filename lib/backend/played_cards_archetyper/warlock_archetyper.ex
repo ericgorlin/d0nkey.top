@@ -56,6 +56,15 @@ defmodule Backend.PlayedCardsArchetyper.WarlockArchetyper do
     "Harold Warlock": ["Caged Cranium"]
   ]
   @wild_config [
+    "Odd Warlock":
+      {[{:start_of_game, ["Baku the Mooneater"]}, "Baku the Mooneater"],
+       ["The Demon Seed", "Battle at the End Time"]},
+    Evenlock:
+      {[{:start_of_game, ["Genn Greymane"]}, "Genn Greymane"],
+       ["The Demon Seed", "Battle at the End Time"]},
+    Rafaamlock: ["Timethief Rafaam"],
+    "Pirate Burnlock": [{:all, ["Patches the Pirate", "Sketch Artist"]}],
+    Burnlock: [{:all, ["Sketch Artist", "Soul Barrage"]}, {:all, ["Sketch Artist", "Expired Merchant"]}],
     Discolock: [
       "Boneweb Egg",
       "Chronoclaws",
@@ -74,7 +83,8 @@ defmodule Backend.PlayedCardsArchetyper.WarlockArchetyper do
     "XL HL Tick Tock Warlock": ["Kerrigan, Queen of Blades", "Nydus Worm", "Spawning Pool", "Witchwood Piper"],
     Boarlock: ["Shadowborn"],
     "XL Highlander Warlock": ["Mixologist", "Void Contract"],
-    "Fatigue Seedlock": ["Blood Shard Bristleback"],
+    "Chad Seedlock": ["Thaddius, Monstrosity"],
+    "Miracle Seedlock": ["Blood Shard Bristleback"],
     "XL Highlander Warlock": ["Deathlord", "Rin, Orchestrator of Doom", "Soul Seeker"],
     "XL HL Tick Tock Warlock": [
       "Battle at the End Time",
@@ -88,18 +98,24 @@ defmodule Backend.PlayedCardsArchetyper.WarlockArchetyper do
     "XL Seedlock": ["Tachyon Barrage"],
     Boarlock: ["Eat! The! Imp!", "Elwynn Boar", "Tour Guide"],
     Evenlock: ["Goldshire Gnoll", "Mountain Giant"],
-    "Fatigue Seedlock": ["Fanottem, Lord of the Opera"],
+    "Miracle Warlock": {[{:all, ["Fanottem, Lord of the Opera", "Zephrys the Great"]}], ["The Demon Seed"]},
+    "Miracle Seedlock": ["Fanottem, Lord of the Opera"],
     "XL Warlock": ["Messmaker"],
     "XL Highlander Warlock": ["Altar of Fire", "Bygone Doomspeaker", "Dar'Khan Drathir", "Eredar Brute"],
     "XL Seedlock": ["Celestial Projectionist", "Imployee of the Month"],
     Discolock: ["Soulfire"],
     "XL SoU Quest Warlock": ["Supreme Archaeology"],
+    "JtU Quest Warlock": ["Lakkari Sacrifice"],
+    "Sludge Warlock": ["Sludge on Wheels", "Disposal Assistant"],
     "Insanity Warlock": ["Encroaching Insanity"],
+    "Fatigue Warlock": ["Crescendo"],
+    "Mecha'thun Warlock": ["Mecha'thun"],
     "XL Demon Boarlock": ["Fae Trickster"],
     "XL Seedlock": ["Shadowblade Slinger"],
     "XL Highlander Warlock": ["Far Watch Post", "Zilliax Deluxe 3000"],
     "XL Seedlock": ["Spirit Bomb"],
     "STD Harold Egglock": ["Abusive Sergeant"],
+    Egglock: ["The Egg of Khelos"],
     Seedlock: ["Flesh Giant", "Molten Giant"],
     "XL Highlander Warlock": ["Cataclysm", "Gnomeferatu", "Zilliax Deluxe 3000"],
     Boarlock: ["Rain of Fire"],
@@ -107,7 +123,7 @@ defmodule Backend.PlayedCardsArchetyper.WarlockArchetyper do
     "Other Warlock": ["Treachery"],
     "XL HL Tick Tock Warlock": ["Grimoire of Sacrifice"],
     "Other Warlock": ["Barrens Scavenger"],
-    "Fatigue Seedlock": ["Chamber of Viscidus"],
+    "Miracle Seedlock": ["Chamber of Viscidus"],
     "STD Harold Egglock": ["Holy Eggbearer"],
     Boarlock: ["Conflagrate"],
     "Insanity Warlock": ["Void Virtuoso"],
@@ -134,7 +150,10 @@ defmodule Backend.PlayedCardsArchetyper.WarlockArchetyper do
     "XL Highlander Warlock": ["Dirty Rat"],
     "Other Warlock": ["\"Health\" Drink"],
     Boarlock: ["Darkbomb", "Darkbomb", "Domino Effect"],
-    Discolock: ["Cursed Catacombs"]
+    Discolock: ["Cursed Catacombs"],
+    Toglock: ["King Togwaggle"],
+    Curselock: ["Dragged Below", "Sira'kess Cultist", "Za'qul"],
+    "Deckless Warlock": ["Kil'jaeden", "Wheel of DEATH!!!"]
   ]
 
   def standard_excludes, do: @standard_excludes

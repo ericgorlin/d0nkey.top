@@ -138,12 +138,20 @@ defmodule Backend.PlayedCardsArchetyper do
   def all_archetypes(format) do
     Backend.Hearthstone.Deck.classes()
     |> Enum.flat_map(fn class ->
-      config(format, class)
-      |> Enum.map(fn {archetype, _} ->
-        archetype
-      end)
+      case config(format, class) do
+        [] ->
+          []
+
+        config ->
+          # games that match no config entry fall back to "Other <Class>"
+          Enum.map(config, fn {archetype, _} -> archetype end) ++ [fallback_archetype(class)]
+      end
     end)
     |> Enum.uniq()
+  end
+
+  def fallback_archetype(class) do
+    :"Other #{Backend.Hearthstone.Deck.short_name_if_multi_word(class)}"
   end
 
   def full_config(format) do

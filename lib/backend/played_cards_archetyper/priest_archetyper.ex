@@ -56,6 +56,11 @@ defmodule Backend.PlayedCardsArchetyper.PriestArchetyper do
     # 10.5
   ]
   @wild_config [
+    "Odd Priest": ["Baku the Mooneater", {:start_of_game, ["Baku the Mooneater"]}],
+    "Even Priest": ["Genn Greymane", {:start_of_game, ["Genn Greymane"]}],
+    "Thief Priest": [{:start_of_game, ["Azalina Soulsever"]}],
+    "JtU Quest Priest": ["Awaken the Makers"],
+    "SoU Quest Priest": ["Activate the Obelisk"],
     "Shadow Priest": ["Parachute Brigand"],
     "LC Quest Priest": ["Grave Horror", "Undying Allies"],
     "Shadow Priest": ["Defias Leper", "Treasure Distributor"],
@@ -111,7 +116,19 @@ defmodule Backend.PlayedCardsArchetyper.PriestArchetyper do
     "XL LC Quest Priest": ["Flutterwing Guardian"],
     "XL LC Quest Priest": ["Bitterbloom Knight"],
     "LC Quest Priest": ["Reach Equilibrium"],
-    "XL HL Thief Priest": ["Benevolent Banker", "Cathedral of Atonement", "Dirty Rat"]
+    "XL HL Thief Priest": ["Benevolent Banker", "Cathedral of Atonement", "Dirty Rat"],
+    "Tog Priest": ["King Togwaggle"],
+    "Zarimi Priest": ["Timewinder Zarimi"],
+    "Switcheroo Priest": ["Switcheroo"],
+    "Overheal Priest": [
+      "Ambient Lightspawn",
+      "Crimson Clergy",
+      "Heartbreaker Hedanis",
+      "Heartthrob",
+      "Holy Champion"
+    ],
+    "Rez Priest": ["Lesser Diamond Spellstone", "Mass Resurrection"],
+    "Crabrider Priest": ["Crabrider"]
   ]
 
   def standard_excludes, do: %{}

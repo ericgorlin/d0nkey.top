@@ -49,7 +49,24 @@ defmodule Backend.PlayedCardsArchetyper.PaladinArchetyper do
     "Other Paladin": ["Convalescence", "Dreamwarden"]
   ]
   @wild_config [
+    "JtU Quest Paladin": ["The Last Kaleidosaur"],
+    "SoU Quest Paladin": ["Making Mummies"],
+    "HL Infinity Paladin": [
+      {:all, ["Hand of Infinity", "Bloodsail Raider"]},
+      {:all, ["Hand of Infinity", "Soulbound Ashtongue"]},
+      {:all, ["Soulbound Ashtongue", "Bloodsail Raider"]}
+    ],
+    "Boar Paladin": ["Elwynn Boar"],
+    "Odd Paladin": [{:start_of_game, ["Baku the Mooneater"]}, "Baku the Mooneater"],
+    "Even Paladin": [{:start_of_game, ["Genn Greymane"]}, "Genn Greymane"],
     "Lynessa Libram Paladin": ["Adaptation", "Libram of Wisdom", "Lightray", "Myrmidon", "Sunsapper Lynessa"],
+    "Tog Paladin": ["King Togwaggle"],
+    "Gaia Paladin": ["Stoneheart King"],
+    "Mecha'thun Paladin": ["Mecha'thun"],
+    "Sea Shanty Paladin": ["Sea Shanty"],
+    "Handbuff Paladin": ["Painter's Virtue"],
+    "Clone CtA Paladin": [{:all, ["Call to Arms", "Commander Beatrix"]}],
+    "Aura CtA Paladin": [{:all, ["Call to Arms", "Gelbin of Tomorrow"]}],
     "Mech Paladin": ["Click-Clocker", "Glow-Tron", "Security Automaton", "Skaterbot"],
     "CtA Paladin": ["Flash Sale"],
     "LC Quest Paladin": ["Braingill"],
@@ -92,7 +109,15 @@ defmodule Backend.PlayedCardsArchetyper.PaladinArchetyper do
     "XL HL Aura Paladin": ["Zephrys the Great"],
     "Lynessa Libram Paladin": ["Showdown!"],
     "Odd Paladin": ["Knight of Anointment", "Lost in the Jungle"],
-    "Lynessa Libram Paladin": ["Crystology"]
+    "Lynessa Libram Paladin": ["Crystology"],
+    "Libram Paladin": [
+      "Libram of Clarity",
+      "Libram of Divinity",
+      "Libram of Faith",
+      "Libram of Hope",
+      "Libram of Judgement",
+      "Libram of Justice"
+    ]
   ]
 
   def standard_excludes, do: @standard_excludes

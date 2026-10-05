@@ -48,14 +48,22 @@ defmodule Backend.PlayedCardsArchetyper.HunterArchetyper do
     "Dragon Hunter": ["Tracking", "Underbelly Network"]
   ]
   @wild_config [
+    "Odd Questline Hunter": [{:all, [{:start_of_game, ["Baku the Mooneater"]}, "Defend the Dwarven District"]}],
+    "JtU Quest Hunter": ["The Marsh Queen"],
+    "SoU Quest Hunter": ["Unseal the Vault"],
     "Boar Hunter": ["Elwynn Boar"],
+    "Odd Hunter": [{:start_of_game, ["Baku the Mooneater"]}],
+    "Even Hunter": [{:start_of_game, ["Genn Greymane"]}],
+    "Tog Hunter": ["King Togwaggle"],
+    "Mecha'thun Hunter": ["Mecha'thun"],
+    "Floppy Hunter": ["Floppy Hydra"],
     "Secret Hunter": ["Eversong Portal"],
     "Amalgam Hunter": ["Adaptive Amalgam"],
     "XL Highlander Hunter": ["Mojomaster Zihi"],
     "Highlander Hunter": ["Trusty Fishing Rod"],
     "Beast Hunter": ["Painted Canvasaur"],
     "XL Highlander Hunter": ["Astalor Bloodsworn", "Boompistol Bully", "Irondeep Trogg", "Misdirection"],
-    "STD No Hand Hunter": ["Arrow Retriever", "Sizzling Cinder"],
+    "STD Face Hunter": ["Arrow Retriever", "Sizzling Cinder"],
     "STD Companion Hunter": ["Critter Caretaker"],
     "XL HL Leoroxx Hunter": ["Hydralodon"],
     "XL Hunter": ["Sing-Along Buddy"],
@@ -65,7 +73,7 @@ defmodule Backend.PlayedCardsArchetyper.HunterArchetyper do
     "Leoroxx Hunter": ["Ten Gallon Hat"],
     "XL HL Leoroxx Hunter": ["Beastmaster Leoroxx", "Elise the Navigator"],
     "XL Highlander Hunter": ["Far Watch Post", "Spawning Pool"],
-    "STD No Hand Hunter": ["Quel'dorei Fletcher"],
+    "STD Face Hunter": ["Quel'dorei Fletcher"],
     "Boar Hunter": ["Bola Shot"],
     "XL Hunter": ["Bitterbloom Knight", "Flutterwing Guardian", "Umbraclaw"],
     "XL HL Leoroxx Hunter": ["Tundra Rhino"],
@@ -81,7 +89,8 @@ defmodule Backend.PlayedCardsArchetyper.HunterArchetyper do
     "XL HL Leoroxx Hunter": ["Miracle Salesman", "Razorscale", "Troubled Mechanic", "Wild Spirits"],
     "Highlander Hunter": ["Theldurin the Lost"],
     "STD Companion Hunter": ["Migrating Elekk", "Talya Earthstrider"],
-    "Boar Hunter": ["Rangari Scout"]
+    "Boar Hunter": ["Rangari Scout"],
+    "Midrange Hunter": ["Acidmaw", "Dreadscale", "Exarch Naielle"]
   ]
 
   def standard_excludes, do: %{}

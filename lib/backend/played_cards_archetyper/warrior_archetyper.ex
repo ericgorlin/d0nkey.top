@@ -92,6 +92,8 @@ defmodule Backend.PlayedCardsArchetyper.WarriorArchetyper do
     "Pirate Warrior": ["Land Ho!", "Captain Crowley"]
   ]
   @wild_config [
+    "Odd Warrior": [{:start_of_game, ["Baku the Mooneater"]}, "Baku the Mooneater"],
+    "Even Warrior": [{:start_of_game, ["Genn Greymane"]}, "Genn Greymane"],
     "XL Taunt Warrior": [
       "Far Watch Post",
       "Imposing Anubisath",
@@ -102,8 +104,16 @@ defmodule Backend.PlayedCardsArchetyper.WarriorArchetyper do
       "Tar Slime",
       "The One-Amalgam Band"
     ],
+    "Taunt 'n' Roll Warrior":
+      {[{:all, ["Blackrock 'n' Roll", "Unlucky Powderman"]}], ["Enter the Lost City"]},
     "XL LC Quest Warrior": ["Blast Tortoise", "Eredar Brute", "Unlucky Powderman"],
     "XL HL LC Quest Warrior": ["Enter the Lost City"],
+    "JtU Quest Warrior": ["Fire Plume's Heart"],
+    "SoU Quest Warrior": ["Hack the System"],
+    "Boar Warrior": ["Elwynn Boar"],
+    "Tog Warrior": ["King Togwaggle"],
+    "Handbuff Warrior": ["Anima Extractor"],
+    "Rock 'n' Roll Warrior": ["Blackrock 'n' Roll"],
     "XL HL Igneous Warrior": [
       "Astalor Bloodsworn",
       "Bladestorm",
@@ -134,6 +144,15 @@ defmodule Backend.PlayedCardsArchetyper.WarriorArchetyper do
       "Zilliax Deluxe 3000",
       "Zola the Gorgon"
     ],
+    "Sul'thraze Odyn Warrior": [{:all, ["Sul'thraze", "Odyn, Prime Designate"]}],
+    "Basher Warrior": ["Barricade Basher"],
+    "Gauntlet Warrior": [{:all, ["Bladed Gauntlet", "Bloodsail Raider"]}],
+    "Warsong Warrior": ["Warsong Commander"],
+    "Mecha'thun Warrior": ["Mecha'thun"],
+    "DMH Warrior": ["Dead Man's Hand"],
+    "Hydration Warrior": ["Hydration Station"],
+    "Rivendare Warrior": ["Rivendare, Warrider"],
+    "Chad Warrior": ["Thaddius, Monstrosity"],
     "Blaze Warrior": ["Destructive Blaze", "Spammy Arcanist"],
     "Sul'thraze Warrior": ["Bloodsail Deckhand"],
     "STD Dragon Warrior": ["Prescient Slitherdrake"],
@@ -159,7 +178,8 @@ defmodule Backend.PlayedCardsArchetyper.WarriorArchetyper do
       "Sphere of Sapience",
       "Unleash the Crocolisks"
     ],
-    "XL HL Igneous Warrior": ["Shield Block"]
+    "XL HL Igneous Warrior": ["Shield Block"],
+    "Igneous Warrior": ["The Ceaseless Expanse"]
   ]
 
   def standard_excludes, do: %{}

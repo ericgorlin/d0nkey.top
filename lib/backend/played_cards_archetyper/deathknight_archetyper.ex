@@ -42,6 +42,12 @@ defmodule Backend.PlayedCardsArchetyper.DeathKnightArchetyper do
   ]
 
   @wild_config [
+    "Boar Death Knight": ["Elwynn Boar"],
+    "Odd Death Knight": ["Baku the Mooneater", {:start_of_game, ["Baku the Mooneater"]}],
+    "Even Death Knight": ["Genn Greymane", {:start_of_game, ["Genn Greymane"]}],
+    "Tog Death Knight": ["King Togwaggle"],
+    "Mecha'thun Death Knight": ["Mecha'thun"],
+    "Mine DK": ["Naval Mine"],
     "Aggro DK": [
       "Creature of Madness",
       "Fire Fly",

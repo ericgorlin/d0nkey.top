@@ -59,14 +59,24 @@ defmodule Backend.PlayedCardsArchetyper.DruidArchetyper do
     "Attack Druid": ["Felwood Treant", "Press the Advantage", "Waveshaping"]
   ]
   @wild_config [
+    "Odd Druid": [{:start_of_game, ["Baku the Mooneater"]}],
+    "Even Druid": [{:start_of_game, ["Genn Greymane"]}],
+    "LC Quest Druid": ["Restore the Wild"],
+    "SoU Quest Druid": ["Untapped Potential"],
+    "Boar Druid": ["Elwynn Boar"],
+    "Imbue Druid": [{:start_of_game, ["Hamuul Runetotem"]}, "Hamuul Runetotem"],
     "Barnes Druid": ["Starfire"],
     "Mill Druid": ["Dew Process", "Selfish Shellfish"],
     "Mecha'thun Druid": ["Mecha'thun"],
-    "Token Druid": ["Aeroponics"],
+    "Alignment Druid": ["Celestial Alignment"],
+    "Token Druid": ["Aeroponics", "Cultivation"],
     "Highlander Druid": ["Alexstrasza", "Rheastrasza", "The Curator", "Warmaster Blackhorn"],
     "Dragon Druid": ["Razormane Battleguard"],
     "Linecracker Druid": ["Linecracker"],
     "XL Dragon Druid": ["Tormented Dreadwing", "Ysera the Dreamer"],
+    "Jade Druid": ["Jade Behemoth", "Jade Blossom", "Jade Idol"],
+    "Taunt Druid": ["Hadronox", "Hydration Station"],
+    "Owl Druid": ["Owlonius"],
     "XL Deios Druid": ["Jepetto Joybuzz", "Kun the Forgotten King"],
     "Barnes Druid": ["Magical Dollhouse"],
     "Champions Druid": ["Barnes"],
@@ -87,7 +97,7 @@ defmodule Backend.PlayedCardsArchetyper.DruidArchetyper do
     "Highlander Druid": ["Death Beetle"],
     "XL HL Tog Druid": ["Tortollan Traveler"],
     "OTK Druid": ["Nightshade Bud"],
-    "XL Therazane Druid": ["Stone Drake"],
+    "XL Therazane Druid": ["Stone Drake", "Therazane"],
     "XL Deios Druid": ["Chrono-Lord Deios"],
     "Highlander Druid": [
       "Brann Bronzebeard",
@@ -145,7 +155,8 @@ defmodule Backend.PlayedCardsArchetyper.DruidArchetyper do
     "Mill Druid": ["Invigorate"],
     "Highlander Druid": ["Dark Peddler", "Darkbomb", "Forgotten Torch", "Shadow Word: Pain"],
     "Mill Druid": ["Aquatic Form"],
-    "Highlander Druid": ["Waveshaping"]
+    "Highlander Druid": ["Waveshaping"],
+    "Miracle Druid": ["Gadgetzan Auctioneer", "Ysiel Windsinger"]
   ]
 
   def standard_excludes, do: %{}
